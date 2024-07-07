@@ -15,11 +15,13 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <!-- Begin Menu -->
             <ul class="navbar-nav ml-auto">
-                <?php foreach ($categories as $category): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><?= $category['title'] ?></a>
-                    </li>
-                <?php endforeach; ?>
+                <?php if ($categories->rowCount()): ?>
+                    <?php foreach ($categories as $category): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><?= $category['title'] ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
             <!-- End Menu -->
             <!-- Begin Search -->

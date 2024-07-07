@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-5 wrapthumbnail">
                             <a href="#">
-                                <div class="thumbnail" style="background-image:url('assets/img/demopic/1.jpg');">
+                                <div class="thumbnail" style="background-image:url(/Views/assets/img/demopic/1.jpg);">
                                 </div>
                             </a>
                         </div>
@@ -51,8 +51,8 @@
                                     <div class="wrapfooter">
 								<span class="meta-footer-thumb">
 								<a href="#"><img class="author-thumb"
-                                                           src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x"
-                                                           alt="Sal"></a>
+                                                 src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x"
+                                                 alt="Sal"></a>
 								</span>
                                         <span class="author-meta">
 								<span class="post-name"><a href="#">Steve</a></span><br/>

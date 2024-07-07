@@ -40,18 +40,6 @@ CREATE TABLE `articles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article_slider`
---
-
-CREATE TABLE `article_slider` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `article_id` int(10) UNSIGNED NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `categories`
 --
 
@@ -113,12 +101,6 @@ ALTER TABLE `articles`
   ADD KEY `category_id` (`category_id`),
   ADD KEY `user_id` (`user_id`);
 
---
--- Indexes for table `article_slider`
---
-ALTER TABLE `article_slider`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `article_id` (`article_id`);
 
 --
 -- Indexes for table `categories`
@@ -156,12 +138,6 @@ ALTER TABLE `articles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `article_slider`
---
-ALTER TABLE `article_slider`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -195,12 +171,6 @@ ALTER TABLE `users`
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `article_slider`
---
-ALTER TABLE `article_slider`
-  ADD CONSTRAINT `article_slider_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comments`

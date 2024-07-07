@@ -8,22 +8,18 @@
     </button>
     <div class="container">
         <!-- Begin Logo -->
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/img/logo.png" alt="logo">
+        <a class="navbar-brand" href="/index.php">
+            <img src="/Views/assets/img/logo.png" alt="Mediumish">
         </a>
         <!-- End Logo -->
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <!-- Begin Menu -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Stories <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="post.html">Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="author.html">Author</a>
-                </li>
+                <?php foreach ($categories as $category): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><?= $category['title'] ?></a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
             <!-- End Menu -->
             <!-- Begin Search -->

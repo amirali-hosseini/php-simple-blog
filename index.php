@@ -10,6 +10,12 @@ if (isset($_GET['category_id']) && is_numeric($_GET['category_id'])) {
 
     $articles->execute(['category_id' => $_GET['category_id']]);
 
+} elseif (isset($_GET['q']) && is_string($_GET['q'])) {
+
+    $articles = $db->prepare("SELECT * FROM `articles` WHERE `title` LIKE :query ORDER BY `id` DESC");
+
+    $articles->execute(['query' => '%' . $_GET['q'] . '%']);
+
 } else {
 
     $articles = $db->query("SELECT * FROM `articles` ORDER BY `id` DESC");

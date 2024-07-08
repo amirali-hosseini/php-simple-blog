@@ -18,7 +18,8 @@
                 <?php if ($categories->rowCount()): ?>
                     <?php foreach ($categories as $category): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><?= $category['title'] ?></a>
+                            <a class="nav-link <?= (isset($_GET['category_id']) && $category['id'] == $_GET['category_id']) ? 'active' : '' ?>"
+                               href="/index.php?category_id=<?= $category['id'] ?>"><?= $category['title'] ?></a>
                         </li>
                     <?php endforeach; ?>
                 <?php endif; ?>

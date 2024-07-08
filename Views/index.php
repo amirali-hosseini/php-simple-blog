@@ -79,6 +79,8 @@
                     </div>
                     <!-- end post -->
                 <?php endforeach; ?>
+            <?php else: ?>
+                <p class="alert alert-danger w-100">No article related to this category was found.</p>
             <?php endif; ?>
 
         </div>

@@ -12,6 +12,11 @@ $categories = $db->query("SELECT * FROM `categories` ORDER BY `id` DESC");
 
 $article = $db->prepare("SELECT * FROM `articles` WHERE `id` = :article_id");
 $article->execute(['article_id' => $article_id]);
+
+if (!$article->rowCount()) {
+    header('Location: /index.php');
+}
+
 $article = $article->fetch(PDO::FETCH_ASSOC);
 
 $article_category = $db->query("SELECT * FROM `categories` WHERE `id` = " . $article['category_id']);

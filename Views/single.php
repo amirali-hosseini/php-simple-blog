@@ -74,7 +74,7 @@
             </div>
 
             <!-- Begin Featured Image -->
-            <img class="featured-image img-fluid" src="/Uploads/articles/<?= $article['image'] ?>" alt="">
+            <img class="featured-image img-fluid rounded" src="/Uploads/articles/<?= $article['image'] ?>" alt="">
             <!-- End Featured Image -->
 
             <!-- Begin Post Content -->
@@ -94,7 +94,8 @@
             <!-- End Tags -->
 
             <!-- Begin Top Meta -->
-            <div class="row post-top-meta">
+            <div class="row post-top-meta"
+                 style="border: 1px solid black;border-radius: 10px;padding: 10px;box-shadow: 0 0 2px lightgray;">
                 <div class="col-md-2">
                     <a href="#"><img class="author-thumb"
                                      src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x"
@@ -108,6 +109,47 @@
                 </div>
             </div>
             <!-- End Top Meta -->
+
+            <div>
+                <form action="" method="post" class="my-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="m-1 w-100">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name ...">
+                            <?= isset($errors['name']) ? '<p class="text-danger">' . $errors['name'] . '</p>' : '' ?>
+                        </div>
+
+                        <div class="m-1 w-100">
+                            <input type="email" name="email" id="email" class="form-control"
+                                   placeholder="Email ...">
+                            <?= isset($errors['email']) ? '<p class="text-danger">' . $errors['email'] . '</p>' : '' ?>
+                        </div>
+                    </div>
+                    <div class="m-1 w-100">
+                        <textarea name="comment" id="comment" cols="30" rows="10" class="form-control m-1"
+                                  placeholder="Your Comment ..."></textarea>
+                        <?= isset($errors['comment']) ? '<p class="text-danger">' . $errors['comment'] . '</p>' : '' ?>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success">Send</button>
+                </form>
+            </div>
+
+            <h4>Comments</h4>
+            <?php if ($comments->rowCount()): ?>
+                <div class="row post-top-meta"
+                     style="border: 1px solid black;border-radius: 10px;padding: 10px;box-shadow: 0 0 2px lightgray;">
+                    <?php foreach ($comments as $comment): ?>
+                        <div class="m-1"
+                             style="width: 100%;border: 1px solid black;border-radius: 10px;padding: 10px;box-shadow: 0 0 2px lightgray;">
+                            <div class="col-12">
+                                <p class="m-0"><b><?= $comment['name'] ?></b></p>
+                                <span class="author-description"><?= $comment['comment'] ?></span>
+                                <br>
+                                <span class="post-date"><?= date('j M Y', strtotime($comment['created_at'])) ?></span>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
         </div>
         <!-- End Post -->

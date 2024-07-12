@@ -23,18 +23,56 @@
 <body>
 <div class="wrapper">
     <div class="sidebar" data-image="/Views/admin/assets/img/sidebar-5.jpg">
-        <?php include_once __DIR__ . '/layouts/sidebar.php' ?>
+        <?php include_once __DIR__ . '/../layouts/sidebar.php' ?>
     </div>
     <div class="main-panel">
         <!-- Navbar -->
-        <?php include_once __DIR__ . '/layouts/navbar.php' ?>
+        <?php include_once __DIR__ . '/../layouts/navbar.php' ?>
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
-                <p class="alert alert-warning rounded p-3">Welcome to admin dashboard.</p>
+                <div class="card-body table-full-width table-responsive">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="my-2">
+                            <input type="text" name="title" id="title" class="form-control" placeholder="Title ...">
+                            <?= isset($errors['title']) ? "<p class='text-danger'>" . $errors['title'] . "</p>" : '' ?>
+                        </div>
+
+                        <div class="my-2">
+                            <textarea name="body" id="body" cols="30" rows="10" placeholder="Body ..."
+                                      class="form-control"></textarea>
+                            <?= isset($errors['body']) ? "<p class='text-danger'>" . $errors['body'] . "</p>" : '' ?>
+                        </div>
+
+                        <div class="my-2">
+                            <select name="category_id" class="form-control" id="category_id">
+                                <?php foreach ($categories as $category): ?>
+                                    <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?= isset($errors['category_id']) ? "<p class='text-danger'>" . $errors['category_id'] . "</p>" : '' ?>
+                        </div>
+
+                        <div class="my-2">
+                            <input type="file" name="image" id="image" class="form-control">
+                            <?= isset($errors['image']) ? "<p class='text-danger'>" . $errors['image'] . "</p>" : '' ?>
+                        </div>
+
+                        <div class="my-2">
+                            <select name="status" class="form-control" id="status">
+                                <option value="0">Draft</option>
+                                <option value="1">Published</option>
+                            </select>
+                        </div>
+
+                        <div class="my-2">
+                            <input type="submit" value="Send" class="btn btn-success">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <?php include_once __DIR__ . '/layouts/footer.php' ?>
+        <?php include_once __DIR__ . '/../layouts/footer.php' ?>
     </div>
 </div>
 </body>

@@ -5,14 +5,14 @@
         </a>
     </div>
     <ul class="nav">
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/Admin/index.php">
                 <i class="nc-icon nc-grid-45"></i>
                 <p>Dashboard</p>
             </a>
         </li>
         <li>
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Admin/articles_index.php">
                 <i class="nc-icon nc-caps-small"></i>
                 <p>Articles</p>
             </a>

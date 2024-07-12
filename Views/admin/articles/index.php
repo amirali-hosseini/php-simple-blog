@@ -23,18 +23,50 @@
 <body>
 <div class="wrapper">
     <div class="sidebar" data-image="/Views/admin/assets/img/sidebar-5.jpg">
-        <?php include_once __DIR__ . '/layouts/sidebar.php' ?>
+        <?php include_once __DIR__ . '/../layouts/sidebar.php' ?>
     </div>
     <div class="main-panel">
         <!-- Navbar -->
-        <?php include_once __DIR__ . '/layouts/navbar.php' ?>
+        <?php include_once __DIR__ . '/../layouts/navbar.php' ?>
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
-                <p class="alert alert-warning rounded p-3">Welcome to admin dashboard.</p>
+                <a href="/Admin/articles_create.php" class="btn btn-info">Create Article</a>
+                <div class="card-body table-full-width table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category ID</th>
+                        <th>User ID</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                        <th>Action</th>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($articles as $article): ?>
+                            <tr>
+                                <td><?= $article['id'] ?></td>
+                                <td><?= $article['title'] ?></td>
+                                <td><?= $article['category_id'] ?></td>
+                                <td><?= $article['user_id'] ?></td>
+                                <td><?= $article['status'] ? 'Published' : 'Draft' ?></td>
+                                <td><?= date('Y-m-d', strtotime($article['created_at'])) ?></td>
+                                <td>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-secondary m-1"
+                                           href="?edit_id=<?= $article['id'] ?>">Edit</a>
+                                        <a class="btn btn-danger m-1" href="?delete_id=<?= $article['id'] ?>">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <?php include_once __DIR__ . '/layouts/footer.php' ?>
+        <?php include_once __DIR__ . '/../layouts/footer.php' ?>
     </div>
 </div>
 </body>

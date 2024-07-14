@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Admin/categories_index.php">
                 <i class="nc-icon nc-tag-content"></i>
                 <p>Categories</p>
             </a>

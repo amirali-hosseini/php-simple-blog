@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($image_upload_result) {
 
-            $insert_comment_query = $db->prepare("INSERT INTO `articles` (`title`,`body`,`category_id`,`user_id`,`image`,`status`) VALUES (:title, :body, :category_id, :user_id, :image, :status)");
+            $insert_article_query = $db->prepare("INSERT INTO `articles` (`title`,`body`,`category_id`,`user_id`,`image`,`status`) VALUES (:title, :body, :category_id, :user_id, :image, :status)");
 
-            $insert_comment_query->execute(['title' => $title, 'body' => $body, 'category_id' => $category_id, 'user_id' => $user_id, 'image' => $image_name, 'status' => $status]);
+            $insert_article_query->execute(['title' => $title, 'body' => $body, 'category_id' => $category_id, 'user_id' => $user_id, 'image' => $image_name, 'status' => $status]);
 
             $errors = [];
 

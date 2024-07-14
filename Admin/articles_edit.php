@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($errors)) {
 
-        $insert_comment_query = $db->prepare("UPDATE `articles` SET `title` = :title,`body` = :body,`category_id` = :category_id,`image` = :image,`status` = :status WHERE `id` = :id");
+        $insert_article_query = $db->prepare("UPDATE `articles` SET `title` = :title,`body` = :body,`category_id` = :category_id,`image` = :image,`status` = :status WHERE `id` = :id");
 
-        $insert_comment_query->execute(['title' => $title, 'body' => $body, 'category_id' => $category_id, 'image' => $image_name, 'status' => $status, 'id' => $article_id]);
+        $insert_article_query->execute(['title' => $title, 'body' => $body, 'category_id' => $category_id, 'image' => $image_name, 'status' => $status, 'id' => $article_id]);
 
         header('Location: /Admin/articles_index.php');
 

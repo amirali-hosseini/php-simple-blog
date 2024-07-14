@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         } else {
 
-            $errors['image'] = 'There is a problem uploading the photo.';
+            $errors['image'] = 'The image could not be uploaded.';
 
         }
 

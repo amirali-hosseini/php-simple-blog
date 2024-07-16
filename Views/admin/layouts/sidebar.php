@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Admin/comments_index.php">
                 <i class="nc-icon nc-bullet-list-67"></i>
                 <p>Comments</p>
             </a>

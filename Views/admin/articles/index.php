@@ -35,13 +35,15 @@
                 <div class="card-body table-full-width table-responsive">
                     <table class="table table-hover table-striped">
                         <thead>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Category ID</th>
-                        <th>User ID</th>
-                        <th>Status</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category ID</th>
+                            <th>User ID</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($articles as $article): ?>

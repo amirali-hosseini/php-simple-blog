@@ -31,29 +31,38 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
-                <a href="/Admin/categories_create.php" class="btn btn-info">Create Category</a>
                 <div class="card-body table-full-width table-responsive">
                     <table class="table table-hover table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>Slug</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Comment</th>
+                            <th>Article ID</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($categories as $category): ?>
+                        <?php foreach ($comments as $comment): ?>
                             <tr>
-                                <td><?= $category['id'] ?></td>
-                                <td><?= $category['title'] ?></td>
-                                <td><?= $category['slug'] ?></td>
+                                <td><?= $comment['id'] ?></td>
+                                <td><?= $comment['name'] ?></td>
+                                <td><?= $comment['email'] ?></td>
+                                <td><?= $comment['comment'] ?></td>
+                                <td>
+                                    <a target="_blank" href="/single.php?article_id=<?= $comment['article_id'] ?>"><?= $comment['article_id'] ?></a>
+                                </td>
+                                <td><?= $comment['status'] ? "Approved" : "Disapproved" ?></td>
                                 <td>
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-secondary m-1"
-                                           href="/Admin/categories_edit.php?category_id=<?= $category['id'] ?>">Edit</a>
+                                        <?php if (!$comment['status']): ?>
+                                            <a class="btn btn-secondary m-1"
+                                               href="?approve_id=<?= $comment['id'] ?>">Approve</a>
+                                        <?php endif; ?>
                                         <a class="btn btn-danger m-1"
-                                           href="?delete_id=<?= $category['id'] ?>">Delete</a>
+                                           href="?delete_id=<?= $comment['id'] ?>">Delete</a>
                                     </div>
                                 </td>
                             </tr>

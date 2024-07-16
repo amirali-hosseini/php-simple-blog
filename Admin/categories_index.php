@@ -12,7 +12,7 @@ if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {
 
     $id = $_GET['delete_id'];
 
-    $delaete_category_query = $db->prepare("DELETE FROM `categories` WHERE `id` = :id");
+    $delete_category_query = $db->prepare("DELETE FROM `categories` WHERE `id` = :id");
     $delete_category_query->execute(['id' => $id]);
 
     header("Location: /Admin/categories_index.php");

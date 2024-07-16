@@ -22,22 +22,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($errors)) {
 
-        $get_user_query = $db->prepare("SELECT * FROM `users` WHERE `email` = :email AND `password` = :password");
+        $get_user_query = $db->prepare("SELECT * FROM `users` WHERE `email` = :email");
 
-        $get_user_query->execute(['email' => $email, 'password' => $password]);
+        $get_user_query->execute(['email' => $email]);
 
         if ($get_user_query->rowCount()) {
 
             $user = $get_user_query->fetch(PDO::FETCH_ASSOC);
 
-            $errors = [];
+            if (password_verify($password, $user['password'])) {
 
-            $_SESSION['is_logged_in'] = true;
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['name'] = $user['name'];
+                $errors = [];
 
-            header('Location: /Admin/index.php');
+                $_SESSION['is_logged_in'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['name'] = $user['name'];
+
+                header('Location: /Admin/index.php');
+
+            } else {
+
+                $errors['email'] = 'Something is wrong, please try again.';
+
+            }
 
         } else {
 

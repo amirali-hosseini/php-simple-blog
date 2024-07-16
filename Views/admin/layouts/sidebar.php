@@ -30,7 +30,7 @@
             </a>
         </li>
         <li class="nav-item active active-pro">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="/logout.php">
                 <i class="nc-icon nc-button-power"></i>
                 <p>LOGOUT</p>
             </a>

@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['is_logged_in'])) {
+    header('Location:/login.php');
+}
+
 require_once '../App/db.php';
 
 if (isset($_GET['article_id']) && is_numeric($_GET['article_id'])) {

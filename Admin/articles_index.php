@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['is_logged_in']) && !$_SESSION['is_logged_in']) {
+    header('Location:/login.php');
+}
+
 require_once '../App/db.php';
 
 if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {

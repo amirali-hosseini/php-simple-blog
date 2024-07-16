@@ -18,7 +18,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <p class="m-0">
-                        <span class="no-icon">Amirali</span>
+                        <span class="no-icon"><?= $_SESSION['name'] ?? '' ?></span>
                     </p>
                 </li>
             </ul>
